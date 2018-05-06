@@ -20,6 +20,9 @@ func (s *Source) Validate() error {
 	if s.AWSSecretAccessKey == "" {
 		return errors.New("aws_secret_access_key must be set")
 	}
+	if s.AWSRegion == "" {
+		return errors.New("aws_region must be set")
+	}
 	return nil
 }
 
