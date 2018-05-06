@@ -25,7 +25,7 @@ Fetches additional metadata about the AMI, in addition to two files:
 - `id`: Plain text file with the AMI ID.
 - `packer.json`: Packer friendly variable file: `{"source_ami": "<ami-id>"}`.
 
-(I.e. it has the same functionality as the ami-resource.)
+(I.e. it has the same functionality as the [ami-resource](https://github.com/itsdalmo/ami-resource).)
 
 #### `put`
 
