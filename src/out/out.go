@@ -159,7 +159,7 @@ func printUI(w io.Writer, s string) {
 		fmt.Fprintf(w, "[WARN] Failed to parse output with length %d: %v\n", len(p), p)
 	}
 	s = p[4]
-	s = strings.Replace(s, "#!(PACKER_COMMA)", ",", -1)
+	s = strings.Replace(s, "%!(PACKER_COMMA)", ",", -1)
 	s = strings.Replace(s, "\\r", "\r", -1)
 	s = strings.Replace(s, "\\n", "\n", -1)
 	fmt.Fprintln(w, s)
