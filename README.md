@@ -23,7 +23,7 @@ Not implemented (will just return whatever version was passed to check).
 Fetches additional metadata about the AMI, in addition to two files:
 
 - `id`: Plain text file with the AMI ID.
-- `packer`: Packer friendly variable file: `{"source_ami": "<ami-id>"}`.
+- `packer.json`: Packer friendly variable file: `{"source_ami": "<ami-id>"}`.
 
 (I.e. it has the same functionality as the ami-resource.)
 
@@ -32,7 +32,7 @@ Fetches additional metadata about the AMI, in addition to two files:
 Build an image using packer after specifing the following parameters:
 
 - `template`: Path to the Packer template.
-- `var_file`: *Optional*: Array of paths to [external JSON variable files](https://www.packer.io/docs/templates/user-variables.html).
+- `var_file`: *Optional*: Path to [external JSON variable file](https://www.packer.io/docs/templates/user-variables.html).
 - `variables`: *Optional*: A map (name: value) of variables that will be passed to Packer.
 
 ## Example
