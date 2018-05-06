@@ -43,6 +43,7 @@ func Run(request models.PutRequest) (models.PutResponse, error) {
 	}
 
 	response.Version = models.Version{ImageID: ami}
+	response.Metadata = make([]models.Metadata, 0)
 	return response, nil
 }
 
