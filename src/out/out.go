@@ -22,6 +22,19 @@ func Run(request models.PutRequest, sourceDir string) (models.PutResponse, error
 		return response, fmt.Errorf("invalid parameters: %s", err)
 	}
 
+	if request.Source.AWSAccessKeyID != "" {
+		os.Setenv("AWS_ACCESS_KEY_ID", request.Source.AWSAccessKeyID)
+	}
+	if request.Source.AWSSecretAccessKey != "" {
+		os.Setenv("AWS_SECRET_ACCESS_KEY", request.Source.AWSSecretAccessKey)
+	}
+	if request.Source.AWSSessionToken != "" {
+		os.Setenv("AWS_SESSION_TOKEN", request.Source.AWSSessionToken)
+	}
+	if request.Source.AWSRegion != "" {
+		os.Setenv("AWS_DEFAULT_REGION", request.Source.AWSRegion)
+	}
+
 	p := &packer{
 		Dir:    sourceDir,
 		Params: request.Params,
