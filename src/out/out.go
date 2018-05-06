@@ -12,7 +12,7 @@ import (
 )
 
 // Run (business logic)
-func Run(request models.PutRequest) (models.PutResponse, error) {
+func Run(request models.PutRequest, sourceDir string) (models.PutResponse, error) {
 	var response models.PutResponse
 
 	if err := request.Source.Validate(); err != nil {
@@ -22,13 +22,8 @@ func Run(request models.PutRequest) (models.PutResponse, error) {
 		return response, fmt.Errorf("invalid parameters: %s", err)
 	}
 
-	wd, err := os.Getwd()
-	if err != nil {
-		return response, fmt.Errorf("failed to get working directory: %s", err)
-	}
-
 	p := &packer{
-		Dir:    wd,
+		Dir:    sourceDir,
 		Params: request.Params,
 		Wrt:    os.Stderr,
 	}
