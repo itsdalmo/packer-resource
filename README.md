@@ -1,4 +1,4 @@
-##  Packer resource
+##  Packer (AMI) resource
 
 Concourse resource for Packer that is very much based on
 [this resource](https://github.com/jdub/packer-resource) by the same name. A 
